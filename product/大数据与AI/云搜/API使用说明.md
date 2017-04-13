@@ -121,7 +121,7 @@
 <tr>
 <td> message
 </td><td> String
-</td><td> 错误信息，错误码详情参见<a href="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.4._.E6.95.B0.E6.8D.AE.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" class="external text" title="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.4._.E6.95.B0.E6.8D.AE.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" target="_blank" rel="nofollow">错误码说明</a>
+</td><td> 错误信息，错误码详情参见<a href="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="//www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
 </td></tr>
 <tr>
 <td> data
@@ -211,14 +211,8 @@
 </th><th> <b>参数值示例</b>
 </th></tr>
 <tr>
-<td rowspan="5"> 腾讯云公共参数
+<td rowspan="4"> 腾讯云公共参数
 </td><td> Action
-</td><td> 方法名
-</td><td> 是
-</td><td> DataManipulation
-</td></tr>
-<tr>
-<td> Action
 </td><td> 方法名
 </td><td> 是
 </td><td> DataManipulation
@@ -598,7 +592,7 @@ Type=1：当前属性越大，排序越靠前；
 <tr>
 <td> message
 </td><td> String
-</td><td> 错误信息，错误码详情参见<a href="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.3._.E6.A3.80.E7.B4.A2.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" class="external text" title="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.3._.E6.A3.80.E7.B4.A2.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" target="_blank" rel="nofollow">错误码说明</a>
+</td><td> 错误信息，错误码详情参见<a href="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
 </td></tr>
 <tr>
 <td> echo
@@ -805,17 +799,11 @@ Type=1：当前属性越大，排序越靠前；
 </th><th> <b>参数值示例</b>
 </th></tr>
 <tr>
-<td rowspan="5"> 腾讯云公共参数
+<td rowspan="4"> 腾讯云公共参数
 </td><td> Action
 </td><td> 方法名
 </td><td> 是
-</td><td> DataManipulation
-</td></tr>
-<tr>
-<td> Action
-</td><td> 方法名
-</td><td> 是
-</td><td> DataManipulation
+</td><td> DataSearch
 </td></tr>
 <tr>
 <td> SecretId
@@ -894,7 +882,7 @@ Type=1：当前属性越大，排序越靠前；
 
 <div class="code" style="margin-left:20px">
 <pre>   https://yunsou.api.qcloud.com/v2/index.php?
-	Action=DataManipulation
+	Action=DataSearch
 	&amp;Nonce=345122
 	&amp;Region=sz
 	&amp;SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
@@ -967,24 +955,9 @@ Type=1：当前属性越大，排序越靠前；
 
 为方便开发者调试和接入云API， 我们提供了一些常用语言的 SDK。如下所示：
 
-<table class="t" style="margin-left:20px">
-<tr>
-<th> <b>开发语言</b>
-</th><th> <b>下载连接</b>
-</th></tr>
-<tr>
-<td> PHP
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-php" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-php" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-php</a>
-</td></tr>
-<tr>
-<td> Python
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-python" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-python" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-python</a>
-</td></tr>
-<tr>
-<td> Java
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-java" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-java" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-java</a>
-</td></tr>
-<tr>
-<td> .Net
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-dotnet" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-dotnet" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-dotnet</a>
-</td></tr></table>
+| 开发语言 | github地址 | 下载 |
+|---------|---------|---------|
+| PHP | https://github.com/QcloudApi/qcloudapi-sdk-php | [点击下载](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip) |
+| Python | https://github.com/QcloudApi/qcloudapi-sdk-python | [点击下载](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip) |
+| Java | https://github.com/QcloudApi/qcloudapi-sdk-java | [点击下载](https://mc.qcloudimg.com/static/archive/72dbc1a82ad8e18dead2e6dc07acd5d7/qcloudapi-sdk-java-master.zip) |
+| .Net | https://github.com/QcloudApi/qcloudapi-sdk-dotnet | [点击下载](https://mc.qcloudimg.com/static/archive/b55098d83c78db530c53fb10f44c3fef/qcloudapi-sdk-dotnet-master.zip) |

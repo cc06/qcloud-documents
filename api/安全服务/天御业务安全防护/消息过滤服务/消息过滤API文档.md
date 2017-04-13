@@ -24,7 +24,7 @@
 <td> messageId
 </td><td> <font color=red> 必选 </font color=red>
 </td><td> String
-</td><td> 用户产生内容的ID。如果传入此ID，将可以通过恶意结果查询接口获取进一步的信息。
+</td><td> 用户产生内容的ID，消息内容的唯一ID用于标识某条消息。
 </td></tr>
 <tr>
 <td> postIp
@@ -182,6 +182,10 @@
 </td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/document/product/295/7285
 "target="black">公共错误码</a>
 </td></tr>
+<tr><td> codeDesc
+</td><td> String
+</td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
+</td></tr>
 <td> message
 </td><td> String
 </td><td> 模块错误信息描述，与接口相关
@@ -316,6 +320,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
 "associateAccount":"373909726",
 "beatTips":"",
 "code":0,
+"codeDesc":"success" ,
 "level":0,
 "message":"NoError",
 "messageId":"ieafdasfk",

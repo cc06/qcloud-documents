@@ -487,6 +487,29 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 @end
 ```
 
+### 1.11 消息转发
+
+在2.4.0及以上版本，在TIMMessage中提供了copyFrom接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
+
+**原型：**
+
+```
+/**
+ *  消息
+ */
+@interface TIMMessage : NSObject
+/**
+ *  拷贝消息中的属性（ELem、priority、online、offlinePushInfo）
+ *
+ *  @param srcMsg 源消息
+ *
+ *  @return 0 成功
+ */
+- (int)copyFrom:(TIMMessage*)srcMsg;
+
+@end
+```
+
 ## 2. 接收消息
 
 在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 TIMMessageListener，如果用户是登录状态，ImSDK收到新消息会通过此方法抛出，另外需要注意，通过onNewMessage抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
@@ -624,11 +647,11 @@ imageList | 保存本图片的所有规格，目前最多包含三种规格: 缩
  */
 @property(nonatomic,assign) int size;
 /**
- *  图片宽度，发送图片消息时设置
+ *  图片宽度
  */
 @property(nonatomic,assign) int width;
 /**
- *  图片高度，发送图片消息时设置
+ *  图片高度
  */
 @property(nonatomic,assign) int height;
 /**
@@ -1549,4 +1572,5 @@ fail | 失败回调
 当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅：[群组管理-群事件消息](/doc/product/269/群组管理（iOS%20SDK）#8-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
 
 当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅：[群组管理-群系统消息](/doc/product/269/群组管理（iOS%20SDK）#9-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。 
+
 

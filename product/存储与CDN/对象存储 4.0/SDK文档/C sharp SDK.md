@@ -2,15 +2,16 @@
 
 ### 相关资源
 
-[github项目](https://github.com/tencentyun/cos-donet-sdk-v4)
+[C sharp SDK github项目下载地址](https://github.com/tencentyun/cos-donet-sdk-v4)
+
+[C sharp SDK 本地下载地址](https://mc.qcloudimg.com/static/archive/2398ce2fe59262b02e5c2ef03de45fe0/cos-donet-sdk-v4-master.zip)
 
 ### 开发准备
 
 1. sdk依赖C# 4.0版本及以上， 推荐使用相同的版本。
-2. 从控制台获取APP ID、SecretID、SecretKey，详情参考权限控制。
-3. 修改园区，CosCloud.cs文件内的URL定义，例如上海：http://sh.file.myqcloud.com/files/v2/，天津：http://tj.file.myqcloud.com/files/v2/。
-
-
+2. 从控制台获取APP ID、SecretID、SecretKey。
+3. 修改园区，CosCloud.cs文件内的URL定义，例如华东：http://sh.file.myqcloud.com/files/v2/ 华北：http://tj.file.myqcloud.com/files/v2/ 华南：http://gz.file.myqcloud.com/files/v2/
+（本版本SDK基于JSON API封装组成）
 
 ### SDK 配置
 
@@ -34,9 +35,9 @@ public static string Signature(int appId, string secretId, string secretKey, lon
 | ---------- | ------ | ------ | ---------------------------------------- |
 | appId      | int    | 是      | AppId                                    |
 | secretId   | string | 是      | Secret Id                                |
-| secretKey  | string | 是      | Secret Key，以上三项从[控制台](http://console.qcloud.com/cos)获取。 |
+| secretKey  | string | 是      | Secret Key，以上三项从[控制台](/document/product/436/6238)获取。 |
 | expired    | long   | 是      | 过期时间，Unix时间戳                             |
-| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/436/6245) |
 
 #### 示例
 
@@ -58,8 +59,8 @@ public static string SignatureOnce(int appId, string secretId, string secretKey,
 | ---------- | ------ | ------ | ---------------------------------------- |
 | appId      | int    | 是      | AppId                                    |
 | secretId   | string | 是      | Secret Id                                |
-| secretKey  | string | 是      | Secret Key，以上三项从[控制台](http://console.qcloud.com/cos)获取。 |
-| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| secretKey  | string | 是      | Secret Key，以上三项从[控制台](/document/product/436/6238)获取。 |
+| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/436/6245) |
 | remotePath | string | 是      | 文件唯一的标识，格式/appid/bucketname/filepath/filename，其中/filepath/filename为文件在此bucketname下的全路径， |
 
 #### 示例
@@ -68,7 +69,7 @@ public static string SignatureOnce(int appId, string secretId, string secretKey,
 var sign = Sign.SignatureOnce(appId, secretId, secretKey,remotePath, bucketName); 
 ```
 
-更多签名详细说明，请参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
+更多签名详细说明，请参考[权限控制](/document/product/436/6247) 。
 
 ## 目录操作
 
@@ -271,7 +272,7 @@ public string UploadFile(string bucketName, string remotePath, string localPath,
 
 | **参数名**      | **类型**                     | **必填** | **参数描述**                                 |
 | ------------ | -------------------------- | ------ | ---------------------------------------- |
-| bucketName   | string                     | 是      | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName   | string                     | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/430/5887) |
 | remotePath   | string                     | 是      | 文件在服务端的全路径                               |
 | localPath    | string                     | 是      | 文件本地路径                                   |
 | parameterDic | Dictionary<string, string> | 否      | 文件上传参数字典                                 |
@@ -456,7 +457,7 @@ public string UploadSliceList(string bucketName, string remotePath)
 | session    | String     | 是      | init返回的标识                                |
 | filesize   | Int        | 是      | 文件大小                                     |
 | slice_size | Int        | 是      | 分片大小（64K-3M） 大于1M 必须为1M 整数倍              |
-| sha        | String     | 否      | 文件的全文sha值，init时带了则返回                     |
+| sha        | String     | 否      | 文件的全文sha值，init时若已带sha值，则返回该值                 |
 | listparts  | Json Array | 是      | 已上传完成的分片，形如：[{“offset”:0, “datalen”:1024}, {}, {}]. |
 
 #### 示例
@@ -485,7 +486,7 @@ public string SliceUploadInit(string bucketName, string remotePath, string local
 | bucketName | string | 是      | bucket名称   |
 | remotePath | string | 是      | 文件在服务端的全路径 |
 | localPath  | string | 是      | 本地文件路径     |
-| fileSha    | stirng | 是      | 文件的Sha值    |
+| fileSha    | string | 是      | 文件的Sha值    |
 
 #### 返回结果说明
 
@@ -529,7 +530,7 @@ public string SliceUploadData(string bucketName, string remotePath, string local
 | bucketName | string | 是      | bucket名称       |
 | remotePath | string | 是      | 文件在服务端的全路径     |
 | localPath  | string | 是      | 本地文件路径         |
-| fileSha    | stirng | 是      | 文件的Sha值        |
+| fileSha    | string | 是      | 文件的Sha值        |
 | session    | string | 是      | 唯一标识此文件传输过程的id |
 | offset     | int    | 是      | 分片的偏移量         |
 | sliceSize  | int    | 是      | 分片的大小          |
@@ -547,9 +548,9 @@ data的数据说明
 
 | **参数名**       | **类型** | **必带** | **参数描述**                           |
 | ------------- | ------ | ------ | ---------------------------------- |
-| session       | string | 是否     | (非秒传的大部分情况会有)	唯一标识此文件传输过程的id       |
+| session       | string | 是     | (非秒传的大部分情况会有)	唯一标识此文件传输过程的id       |
 | offset        | Int    | 是      | 当前分片的offset                        |
-| datalen       | int    | 是      | 分片文件长度slice_size                   |
+| datalen       | int    | 是      |  分片长度slice_size,返回的datalen就是当前分片的大小                |
 | serial_upload | int    | 否      | (非秒传大部分情况下会有) 1：只支持串行分片上传其它：支持并行分片 |
 
 #### 示例
@@ -578,7 +579,7 @@ public string SliceUploadFinish(string bucketName, string remotePath, string loc
 | bucketName | string | 是      | bucket名称       |
 | remotePath | string | 是      | 文件在服务端的全路径     |
 | localPath  | string | 是      | 本地文件路径         |
-| fileSha    | stirng | 是      | 文件的Sha值        |
+| fileSha    | string | 是      | 文件的Sha值        |
 | session    | string | 是      | 唯一标识此文件传输过程的id |
 
 #### 返回结果说明

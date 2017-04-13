@@ -96,9 +96,12 @@ vrrp_sync_group G1 {
 }
 
 ```
-步骤 6. 验证主备倒换时VIP及外网IP是否正常切换
+### 步骤 6. 验证主备倒换时VIP及外网IP是否正常切换
 vip.py：通过云API开发主备切换程序，通过调用内网IP迁移的云API来进行IP地址的切换，以python为例：
-1) [下载python-sdk](https://github.com/QcloudApi/qcloudapi-sdk-python)
+1) 下载 Python SDK
+- [转到 github 查看 Python SDK >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
+- [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
+
 请仔细阅读其中README.md，并将sdk下载到/etc/keepalived目录中，如：
 
 2) 云API密钥获取：
@@ -151,12 +154,6 @@ except Exception, e:
 
 ```
 ! Configuration File for keepalived
-global_defs {
-   notification_email {
-     acassen@firewall.loc
-     failover@firewall.loc
-     sysadmin@firewall.loc
-   }
    notification_email_from Alexandre.Cassen@firewall.loc
    smtp_server 192.168.200.1
    smtp_connect_timeout 30
@@ -165,7 +162,7 @@ global_defs {
 vrrp_sync_group G1 {
     group {
         VI_1
-    }a
+    }
     notify_master "/etc/keepalived/vip.py"
 }
 vrrp_instance VI_1 {
